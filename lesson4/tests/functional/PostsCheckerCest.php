@@ -9,11 +9,15 @@ class PostsCheckerCest
     //**test   */
     public function CheckGoodsOnModalWindow(FunctionalTester $I)
     {
+        //first page actions
         $I->amOnPage('');
-        $I->seeElement('#search_query_top');
-        $I->click('#search_query_top');
+        $I->expect('#search_query_top');
+        $I->click('#search_query_top');        
         $I->fillField('#search_query_top', 'Printed dress');
         $I->click('#searchbox > button');
-        $I->seeNumberOfElements('product_list grid row', 5);
+        $I->expect('#center_column > ul > li');
+
+        //second page
+        $I->seeNumberOfElements('#center_column > ul > li', 5);
     }
 }
