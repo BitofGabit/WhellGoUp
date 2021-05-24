@@ -1,1 +1,1 @@
-tests\acceptance\SecondCest.php:tryToTest
+tests\acceptance\FirstCest.php:CheckGoodsOnModalWindow
