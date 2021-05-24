@@ -18,8 +18,11 @@ class FirstCest
         $I->click('#searchbox > button');
 
         //second page actions   
-        $I->waitForElementVisible('#center_column > ul > li > div > div.left-block > div', 20);
-        $I->click('#center_column > ul > li > div > div.left-block > div > a.quick-view > span');
+        $I->wait(10);
+        $I->click(['class' => 'quick-view']);
+        $I->switchToIFrame('fancybox-frame1621854109526', 
+        'fancybox-frame1621854109526', 
+        'http://automationpractice.com/index.php?id_product=2&amp;controller=product&amp;search_query=Blouse&amp;results=1&amp;content_only=1');
         $I->wait(10);
         $I->see('Blouse','#product > div:nth-child(2) > div > div.pb-center-column.col-xs-12.col-sm-4 > h1');
     }
