@@ -20,4 +20,12 @@ Running specific method in class
 php vendor/bin/codecept run tests/acceptance/SigninCest.php:^anonymousLogin$
 ```
 
+Run after deleting any file for refactoring
+```php
+vendor/bin/codecept clean
+```
+
+
+
+
 #### php!

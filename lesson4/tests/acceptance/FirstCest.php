@@ -14,7 +14,6 @@ class FirstCest
         $I->mouseOverQuickView = '#center_column > ul > li > div > div.left-block > div';
         $I->quickViewclick = '//*[@id="center_column"]/ul/li/div/div[1]/div/a[2]';
 
-
         //first page actions
         $I->amOnPage('');
         $I->waitForElementClickable('#search_query_top', 10);
