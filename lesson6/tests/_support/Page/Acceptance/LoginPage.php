@@ -4,7 +4,7 @@ namespace Page\Acceptance;
 class LoginPage
 {
     // include url of current page
-    public static $URL = '';
+    public static $URL = 'https://www.saucedemo.com';
 
     /**
      * currect username 
