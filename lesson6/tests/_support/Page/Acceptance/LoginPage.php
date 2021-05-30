@@ -5,15 +5,27 @@ class LoginPage
 {
     // include url of current page
     public static $URL = '';
-        /**
-     * username 
+
+    /**
+     * currect username 
      */
     public const USERNAME = 'standard_user';
 
     /**
-     * password
+     * currect password
      */
     public const PASSWORD = 'secret_sauce';
+
+    /**
+     * incurrect username 
+     */
+    public const LOCKEDOUT_USERNAME = 'locked_out_user';
+
+    /**
+     * incurrect password
+     */
+    public const LOCKEDOUT_PASSWORD = 'secret_sauce';
+
 
 
     /**
@@ -31,31 +43,76 @@ class LoginPage
      */
     public static $loginSubmitBtn = '//input[@id="login-button"]';
 
-
     /**
-     * Declare UI map for this page here. CSS or XPath allowed.
-     * public static $usernameField = '#username';
-     * public static $formSubmitButton = "#mainForm input[type=submit]";
+     * exit error block btn
      */
+    public static $errorBlockExitBtn = '//button[@class="error-button"]';
 
     /**
-     * Basic route example for your current URL
-     * You can append any additional parameter to URL
-     * and use it in tests like: Page\Edit::route('/123-post');
-     */
-    public static function route($param)
-    {
-        return static::$URL.$param;
-    }
-
-    /**
+     * Объект Tester-a 
+     * 
      * @var \AcceptanceTester;
      */
     protected $acceptanceTester;
 
+    /**
+     * Constuctor class
+     */
     public function __construct(\AcceptanceTester $I)
     {
         $this->acceptanceTester = $I;
     }
 
+    /**
+     * Exit from exit block window
+     */
+    public function exitFromErrorLoginBlock()
+    {
+        $this->acceptanceTester->click(self::$errorBlockExitBtn);        
+    }
+
+    /**
+     * Fills login field by username 
+     */
+    public function fillUsernameField()
+    {
+        $this->acceptanceTester->fillField(self::$userNameInput, self::USERNAME);
+        return $this;
+    }
+
+    /**
+     * Fills User password field
+     */
+    public function fillUserPasswordField()
+    {
+        $this->acceptanceTester->fillField(self::$userPasswordInput, self::PASSWORD);
+        return $this;
+    }
+
+        /**
+     * Fills login field by username 
+     */
+    public function fillLockedUsernameField()
+    {
+        $this->acceptanceTester->fillField(self::$userNameInput, self::LOCKEDOUT_USERNAME);
+        return $this;
+    }
+
+    /**
+     * Fills User password field
+     */
+    public function fillLockedUserPasswordField()
+    {
+        $this->acceptanceTester->fillField(self::$userPasswordInput, self::LOCKEDOUT_PASSWORD);
+        return $this;
+    }
+
+    /**
+     * Click login page for submit
+     */
+    public function clickLoginSubmit()
+    {
+        $this->acceptanceTester->click(self::$loginSubmitBtn);
+        return new MainPage($this->acceptanceTester);
+    }
 }

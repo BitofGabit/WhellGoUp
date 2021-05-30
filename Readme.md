@@ -25,6 +25,10 @@ Run after deleting any file for refactoring
 vendor/bin/codecept clean
 ```
 
+lesson6: Creates new page object class with templates
+```php
+php vendor/bin/codecept generate:pageobject acceptance MainPage
+```
 
 
 
