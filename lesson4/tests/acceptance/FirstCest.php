@@ -9,6 +9,11 @@ class FirstCest
     //**test */
     public function CheckGoodsOnModalWindow(AcceptanceTester $I)
     {
+        $I->searchBarInput = '#search_query_top';
+        $I->searchSubmitBtn = '#searchbox > button';
+        $I->mouseOverQuickView = '#center_column > ul > li > div > div.left-block > div';
+        $I->quickViewclick = '//*[@id="center_column"]/ul/li/div/div[1]/div/a[2]';
+
         //first page actions
         $I->amOnPage('');
         $I->waitForElementClickable('#search_query_top', 10);
@@ -19,11 +24,11 @@ class FirstCest
 
         //second page actions   
         $I->wait(10);
-        $I->click(['class' => 'quick-view']);
-        $I->switchToIFrame('fancybox-frame1621854109526', 
-        'fancybox-frame1621854109526', 
-        'http://automationpractice.com/index.php?id_product=2&amp;controller=product&amp;search_query=Blouse&amp;results=1&amp;content_only=1');
+        $I->moveMouseOver('#center_column > ul > li > div > div.left-block > div');
+        $I->click('//*[@id="center_column"]/ul/li/div/div[1]/div/a[2]');
         $I->wait(10);
-        $I->see('Blouse','#product > div:nth-child(2) > div > div.pb-center-column.col-xs-12.col-sm-4 > h1');
+        // $I->switchToIFrame(['name' => 'fancybox-frame1621860340005']);
+        // $I->wait(10);
+        $I->see('Blouse','h1');
     }
 }

@@ -20,4 +20,16 @@ Running specific method in class
 php vendor/bin/codecept run tests/acceptance/SigninCest.php:^anonymousLogin$
 ```
 
+Run after deleting any file for refactoring
+```php
+vendor/bin/codecept clean
+```
 
+lesson6: Creates new page object class with templates
+```php
+php vendor/bin/codecept generate:pageobject acceptance MainPage
+```
+
+
+
+#### php!
